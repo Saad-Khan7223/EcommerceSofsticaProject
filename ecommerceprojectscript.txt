@@ -1,0 +1,88 @@
+// test('Register User', async ({ page }) => {
+  
+// await page.goto('/');
+
+// // Expect a title "to contain" a substring.
+// await expect(page).toHaveTitle('Demo Web Shop');
+
+// await page.getByRole('link', { name: 'Register' }).click();
+// await expect(page.getByRole('heading', { name: 'Register' })).toBeVisible();
+
+// // Select Gender
+// await page.locator('input[type="radio"][value="M"]').click();
+
+// // Fill registration form
+// await page.locator('input[id="FirstName"]').fill(tesData[0].firstName);
+// await page.locator('input[id="LastName"]').fill(tesData[0].lastName);
+// await page.locator('input[id="Email"]').fill(tesData[0].email);
+// await page.locator('input[id="Password"]').fill(tesData[0].password);
+// await page.locator('input[id="ConfirmPassword"]').fill(tesData[0].password);
+
+// // Submit form
+// await page.locator('input[id="register-button"]').click();
+//   }
+//  );
+
+
+// test('Login User', async ({ page }) => {
+//   await page.goto('/');
+
+//   // Login
+//   await page.getByRole('link', { name: 'Log in' }).click();
+//   await page.locator('#Email').fill(tesData[0].email);
+//   await page.locator('#Password').fill(tesData[0].password);
+//   await page.check('#RememberMe');
+//   await page.locator('input[value="Log in"]').click();
+//   await expect(page.getByRole('link', { name: 'My account' })).toBeVisible();
+
+//   // Navigate to Notebooks
+//   await page.locator('ul.top-menu >> text=Computers').hover();
+//   await page.locator('ul.top-menu >> text=Notebooks').click();
+
+
+//   await page.locator('.product-item input[value="Add to cart"]').first().click();
+
+//   // Go to cart
+//   await page.locator('#topcartlink a.ico-cart').click();
+//   await expect(page.locator('//h1[normalize-space()="Shopping cart"]')).toBeVisible();
+
+
+//   // ✅ Assertion: Cart calculations
+//   const unitPrice = parseFloat((await page.locator('.cart-item-row .product-unit-price').innerText()).replace(/[^0-9.]/g, ''));
+//   const qty = parseInt(await page.locator('.cart-item-row .qty-input').inputValue(), 10);
+//   const subtotal = parseFloat((await page.locator('.cart-item-row .product-subtotal').innerText()).replace(/[^0-9.]/g, ''));
+//   expect(subtotal).toBeCloseTo(unitPrice * qty, 2);
+
+//   await page.locator('#CountryId').selectOption({ label: 'Pakistan' });
+//   await page.locator('#ZipPostalCode').fill('74000');
+//   await page.check('#termsofservice');
+//   await page.locator('#checkout').click();
+
+//   // Billing address
+//   await page.locator('#BillingNewAddress_CountryId').selectOption({ label: 'Pakistan' });
+//   await page.locator('#BillingNewAddress_City').fill(tesData[0].city);
+//   await page.locator('#BillingNewAddress_Address1').fill(tesData[0].address);
+//   await page.locator('#BillingNewAddress_ZipPostalCode').fill(tesData[0].zip);
+//   await page.locator('#BillingNewAddress_PhoneNumber').fill(tesData[0].phone);
+//   await expect(page.getByRole('heading', { name: 'Checkout' })).toBeVisible();
+//   await page.locator('//input[@class="button-1 new-address-next-step-button" and @onclick="Billing.save()"]').click();
+
+//   // Shipping → Payment → Confirm
+//   await page.locator('//input[@class="button-1 new-address-next-step-button" and @onclick="Shipping.save()"]').click();
+//   await page.locator('//input[@class="button-1 shipping-method-next-step-button" and @onclick="ShippingMethod.save()"]').click();
+//   await page.locator('//input[@class="button-1 payment-method-next-step-button" and @onclick="PaymentMethod.save()"]').click();
+//   await expect(page.getByText('You will pay by COD')).toBeVisible();
+//   await page.locator('//input[@class="button-1 payment-info-next-step-button" and @onclick="PaymentInfo.save()"]').click();
+//   await expect(page.getByRole('heading', { name: 'Confirm order' })).toBeVisible();
+
+//   // ✅ Assertion: Product name & price consistency (Confirm page)
+//   await expect(page.locator('.order-summary-content .product-name')).toHaveText(productName);
+//   await expect(page.locator('.order-summary-content .product-unit-price')).toHaveText(productPrice);
+
+//   // Confirm order
+//   await page.locator('input[value="Confirm"]').click();
+
+//   // Final confirmation
+//   await expect(page.getByRole('heading', { name: 'Thank you' })).toBeVisible();
+
+// });
